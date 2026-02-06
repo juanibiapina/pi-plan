@@ -34,6 +34,12 @@ Use `/plan` again to return to normal mode with full tool access.
 
 No shortcut is bound by default. To configure one, use `/extension-settings` and set the `shortcut` setting under `plan` (e.g. `tab`, `ctrl+p`).
 
+> **Note:** The `/extension-settings` command is provided by the [`@juanibiapina/pi-extension-settings`](https://github.com/juanibiapina/pi-extension-settings) package, which must be installed separately:
+>
+> ```bash
+> pi install npm:@juanibiapina/pi-extension-settings
+> ```
+
 ### CLI Flag
 
 Start pi directly in plan mode:
