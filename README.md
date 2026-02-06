@@ -7,7 +7,7 @@ A [pi](https://github.com/badlogic/pi-mono) extension for plan mode — read-onl
 - **`/plan` command** — Toggle plan mode on and off
 - **Configurable shortcut** — Optional keyboard shortcut via `/extension-settings`
 - **Read-only tools** — Only safe, non-modifying tools are available while in plan mode
-- **Session persistence** — Plan mode state is persisted across session resume via invisible messages
+- **Session persistence** — System reminders are kept in session history, so what the LLM sees is exactly what you see
 - **Status indicator** — Shows `⏸ plan` in the status bar when active
 
 ## Installation
@@ -48,9 +48,9 @@ Start pi directly in plan mode:
 pi --plan
 ```
 
-### Session Persistence
+### How It Works
 
-Plan mode state is tracked via invisible messages in the session. When resuming a session that was in plan mode, the mode is automatically restored.
+Plan mode works by injecting system reminder messages into the session when the mode changes. These messages instruct the LLM to operate in read-only mode (or restore full access when exiting). The messages are kept in the session history, so what is sent to the LLM is always exactly what you see in the session — no hidden prompt manipulation. When resuming a session that was in plan mode, the mode is automatically restored from these messages.
 
 ## License
 
