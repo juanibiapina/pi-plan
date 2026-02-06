@@ -5,7 +5,7 @@
 Initial release.
 
 - `/plan` command to toggle plan mode
-- Tab shortcut for quick toggle
+- Configurable keyboard shortcut via `/extension-settings` (no shortcut bound by default)
 - Read-only tool restriction when active (`read`, `bash`, `grep`, `find`, `ls`, `questionnaire`)
 - `--plan` CLI flag to start in plan mode
 - Session persistence via invisible messages

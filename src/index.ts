@@ -9,7 +9,9 @@
  * - Mode changes are persisted as invisible messages in session
  */
 
+import { getSetting, type SettingDefinition } from "@juanibiapina/pi-extension-settings";
 import type { ExtensionAPI, ExtensionContext } from "@mariozechner/pi-coding-agent";
+import type { KeyId } from "@mariozechner/pi-tui";
 
 // Tools
 const PLAN_MODE_TOOLS = ["read", "bash", "grep", "find", "ls", "questionnaire"];
@@ -50,6 +52,19 @@ You are permitted to make file changes, run shell commands, and utilize your ars
 </system-reminder>`;
 
 export default function planModeExtension(pi: ExtensionAPI): void {
+	// Register settings via event (for /extension-settings UI)
+	pi.events.emit("pi-extension-settings:register", {
+		name: "plan",
+		settings: [
+			{
+				id: "shortcut",
+				label: "Keyboard shortcut",
+				description: "Shortcut to toggle plan mode. Example: tab",
+				defaultValue: "",
+			},
+		] satisfies SettingDefinition[],
+	});
+
 	let planModeEnabled = false;
 	let lastMessagedState: boolean | null = null;
 
@@ -106,12 +121,16 @@ export default function planModeExtension(pi: ExtensionAPI): void {
 		},
 	});
 
-	pi.registerShortcut("tab", {
-		description: "Toggle plan mode",
-		handler: async (ctx) => {
-			togglePlanMode(ctx);
-		},
-	});
+	// Register shortcut if configured
+	const shortcut = getSetting("plan", "shortcut");
+	if (shortcut) {
+		pi.registerShortcut(shortcut as KeyId, {
+			description: "Toggle plan mode",
+			handler: async (ctx) => {
+				togglePlanMode(ctx);
+			},
+		});
+	}
 
 	// Inject plan mode message when mode changes (persisted to session)
 	pi.on("before_agent_start", async () => {
