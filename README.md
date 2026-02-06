@@ -9,6 +9,7 @@ A [pi](https://github.com/badlogic/pi-mono) extension for plan mode — read-onl
 - **Read-only tools** — Only safe, non-modifying tools are available while in plan mode
 - **Session persistence** — System reminders are kept in session history, so what the LLM sees is exactly what you see
 - **Status indicator** — Shows `⏸ plan` in the status bar when active
+- **Powerbar support** — Emits a `⏸ plan` segment to [pi-powerbar](https://github.com/juanibiapina/pi-powerbar) when plan mode is active
 
 ## Installation
 
