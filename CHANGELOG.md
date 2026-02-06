@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Add pi-powerbar support: emits `powerbar:update` segment (`⏸ plan`) when plan mode is active
+
 ## 0.1.0
 
 Initial release.

@@ -96,8 +96,18 @@ export default function planModeExtension(pi: ExtensionAPI): void {
 	function updateStatus(ctx: ExtensionContext): void {
 		if (planModeEnabled) {
 			ctx.ui.setStatus("plan-mode", ctx.ui.theme.fg("warning", "⏸ plan"));
+			pi.events.emit("powerbar:update", {
+				id: "plan-mode",
+				text: "plan",
+				icon: "⏸",
+				color: "warning",
+			});
 		} else {
 			ctx.ui.setStatus("plan-mode", undefined);
+			pi.events.emit("powerbar:update", {
+				id: "plan-mode",
+				text: undefined,
+			});
 		}
 	}
 
