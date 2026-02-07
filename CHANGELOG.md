@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.3.0
 
 - Register `plan-mode` powerbar segment via `powerbar:register-segment` event for ordered multi-select settings
 
