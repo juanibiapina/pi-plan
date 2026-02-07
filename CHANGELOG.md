@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Register `plan-mode` powerbar segment via `powerbar:register-segment` event for ordered multi-select settings
+
 ## 0.2.0
 
 - Add pi-powerbar support: emits `powerbar:update` segment (`⏸ plan`) when plan mode is active

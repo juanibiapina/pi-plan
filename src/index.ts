@@ -52,6 +52,9 @@ You are permitted to make file changes, run shell commands, and utilize your ars
 </system-reminder>`;
 
 export default function planModeExtension(pi: ExtensionAPI): void {
+	// Register powerbar segment
+	pi.events.emit("powerbar:register-segment", { id: "plan-mode", label: "Plan Mode" });
+
 	// Register settings via event (for /extension-settings UI)
 	pi.events.emit("pi-extension-settings:register", {
 		name: "plan",
