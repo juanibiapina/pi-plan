@@ -30,7 +30,7 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+ssh://git@github.com/juanibiapina/pi-plan.git"
+		"url": "https://github.com/juanibiapina/pi-plan"
 	},
 	"engines": {
 		"node": ">=20.0.0"
