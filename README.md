@@ -1,3 +1,7 @@
+> **⚠️ Deprecated** — This extension is deprecated. The same functionality is better achieved with a simple [prompt template](https://github.com/juanibiapina/dotfiles/blob/main/dotfiles/pi/.pi/agent/prompts/plan.md). Drop a `plan.md` file in `~/.pi/agent/prompts/` and invoke it with `/plan <description>`.
+
+---
+
 # @juanibiapina/pi-plan
 
 A [pi](https://github.com/badlogic/pi-mono) extension for plan mode — read-only exploration and analysis.
